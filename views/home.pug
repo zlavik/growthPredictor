@@ -1,0 +1,40 @@
+extends layout
+
+block main
+  form(action="/results" method="post")
+    dl
+      dt
+        p This can predict based on these two:
+        p One is based on what you have done in the past few weeks.
+        p Two is based on what you think your projected growth looks like in the next few weeks.
+        p &nbsp;
+        p I will be referring to customers/clients/patients/users as clients.
+        p &nbsp;
+        label(for="dataPoints") Enter how many total clients you've seen each week in the past 5 weeks or how many you're projecting to see:
+      dd
+        input(type="text"
+              id="dataPoints"
+              name="dataPoints"
+              placeholder="Example: 2, 4, 2, 3, 5, 4, 4"
+              value=dataPoints)
+      dt
+        label(for="currentCustomerAmount") Enter the how many clients you're CURRENTLY seeing per week:
+      dd
+        input(type="text"
+              id="currentCustomerAmount"
+              name="currentCustomerAmount"
+              placeholder="Example: 2"
+              value=currentCustomerAmount)
+      dt
+        label(for="futureCustomerGoal") Enter the goal of how many clients you want to see:
+      dd
+        input(type="text"
+              id="futureCustomerGoal"
+              name="futureCustomerGoal"
+              placeholder="Example: 25"
+              value=futureCustomerGoal)
+
+    fieldset.actions
+      input(type="submit" value="Submit")
+      a.add(href="/")
+        span(style='color: #ff0000;') Reset
